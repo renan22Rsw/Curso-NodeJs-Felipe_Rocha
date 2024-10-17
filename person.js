@@ -8,4 +8,6 @@ class Person {
   }
 }
 
-export default Person;
+module.exports = {
+  Person,
+};

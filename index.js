@@ -1,4 +1,5 @@
-import Person from "./person.js";
+const { Person } = require("./person");
+require("./modules/path");
+require("./modules/fs");
 
 const person = new Person("Renan");
-console.log(person.sayMyName());
