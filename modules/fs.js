@@ -1,7 +1,7 @@
 const path = require("path");
 const fs = require("fs");
 
-//Esse modulo server para manipular modulo de arquivos
+//Fs é usado para ler, escrever, manipular e navegar em arquivos e diretórios
 
 //Criar Pastas
 

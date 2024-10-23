@@ -1,5 +1,7 @@
 const path = require("path");
 
+//Path é usado para trabalhar  caminhos de arquivos e diretórios
+
 //Mostra o nome do arquivo atual
 
 console.log(path.basename(__filename));
