@@ -41,4 +41,17 @@ app.get("/users/:id", async (req, res) => {
   }
 });
 
+//updateUserById
+
+app.patch("/users/:id", async (req, res) => {
+  try {
+    const user = await UserModel.findByIdAndUpdate(req.params.id, req.body, {
+      new: true,
+    });
+    return res.status(200).json(user);
+  } catch (error) {
+    return res.status(500).send(error.message);
+  }
+});
+
 app.listen(PORT, () => console.log(`rodando com express na porta: ${PORT}`));
