@@ -13,20 +13,20 @@ app.get("/home", (req, res) => {
 });
 
 app.post("/users", async (req, res) => {
-  if (res.status(200)) {
+  try {
     const user = await UserModel.create(req.body);
     res.status(201).json(user);
-  } else {
-    res.send("Ocorreu um error ao fazer a requisição!");
+  } catch (error) {
+    res.status(500).send(error.message);
   }
 });
 
 app.get("/users", async (req, res) => {
-  if (res.status(200)) {
-    const users = await UserModel.find({});
-    res.json(users);
-  } else if (res.status(500)) {
-    res.send("Ocorreu um error ao fazer a requisição!");
+  try {
+    const user = await UserModel.find({});
+    res.status(201).json(user);
+  } catch (error) {
+    res.status(500).send(error.message);
   }
 });
 
