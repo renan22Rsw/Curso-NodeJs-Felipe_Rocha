@@ -15,9 +15,9 @@ app.get("/home", (req, res) => {
 app.post("/users", async (req, res) => {
   try {
     const user = await UserModel.create(req.body);
-    res.status(201).json(user);
+    return res.status(201).json(user);
   } catch (error) {
-    res.status(500).send(error.message);
+    return res.status(500).send(error.message);
   }
 });
 
@@ -26,7 +26,18 @@ app.get("/users", async (req, res) => {
     const user = await UserModel.find({});
     res.status(201).json(user);
   } catch (error) {
-    res.status(500).send(error.message);
+    return res.status(500).send(error.message);
+  }
+});
+
+//getUserById
+
+app.get("/users/:id", async (req, res) => {
+  try {
+    const user = await UserModel.findById(req.params.id);
+    return res.status(200).json(user);
+  } catch (error) {
+    return res.status(500).send(error.message);
   }
 });
 
