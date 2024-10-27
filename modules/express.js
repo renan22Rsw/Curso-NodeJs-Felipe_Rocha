@@ -5,6 +5,16 @@ const app = express();
 
 app.use(express.json());
 
+//Middlewares
+
+app.use((req, res, next) => {
+  console.log(`Request Type: ${req.method}`);
+  console.log(`Content Type: ${req.headers["content-type"]}`);
+  console.log(`Date: ${new Date()}`);
+
+  next();
+});
+
 const PORT = 8080;
 
 app.get("/home", (req, res) => {
