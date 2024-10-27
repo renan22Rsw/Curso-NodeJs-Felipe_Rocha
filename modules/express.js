@@ -4,6 +4,8 @@ const UserModel = require("../src/models/user.model");
 const app = express();
 
 app.use(express.json());
+app.set("view engine", "ejs");
+app.set("views", "src/views");
 
 //Middlewares
 
@@ -20,6 +22,12 @@ const PORT = 8080;
 app.get("/home", (req, res) => {
   res.contentType("application/html");
   res.status(200).send("<h1>Home Page<h1/>");
+});
+
+//ejs library
+
+app.get("/views/users", async (req, res) => {
+  res.render("index");
 });
 
 app.post("/users", async (req, res) => {
